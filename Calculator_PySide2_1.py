@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 ################################################################################
 ## Form generated from reading UI file 'Calculator_With_Title.ui'
 ##
@@ -22,6 +20,7 @@ class Ui(QtWidgets.QMainWindow):
         #
         # CHANGE "MainWindow" TO "self"
         #
+
 
         self.setObjectName("MainWindow")
         self.resize(350, 600)
