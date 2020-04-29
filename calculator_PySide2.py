@@ -12,6 +12,7 @@ from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFo
 from PySide2.QtWidgets import *
 
 import files_rc
+from styles import *
 
 class Ui(QtWidgets.QMainWindow):
     def __init__(self):
@@ -20,7 +21,6 @@ class Ui(QtWidgets.QMainWindow):
         #
         # CHANGE "MainWindow" TO "self"
         #
-
 
         self.setObjectName("MainWindow")
         self.resize(350, 600)
@@ -102,20 +102,7 @@ class Ui(QtWidgets.QMainWindow):
         self.pushButton_minimize.setObjectName(u"pushButton_minimize")
         self.pushButton_minimize.setMinimumSize(QSize(50, 50))
         self.pushButton_minimize.setMaximumSize(QSize(50, 50))
-        self.pushButton_minimize.setStyleSheet(u"QPushButton {\n"
-"	background-color: transparent; 	\n"
-"	background-image: url(:/PNGs/Images/cil-window-minimize.png);\n"
-"	background-position: center;\n"
-"	background-repeat: no-repeat;\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(45, 45, 45); 	\n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgb(25, 25, 25); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.pushButton_minimize.setStyleSheet(style.bts_title_bar_minimize)
 
         self.horizontalLayout.addWidget(self.pushButton_minimize)
 
@@ -123,20 +110,7 @@ class Ui(QtWidgets.QMainWindow):
         self.pushButton_max_rest.setObjectName(u"pushButton_max_rest")
         self.pushButton_max_rest.setMinimumSize(QSize(50, 50))
         self.pushButton_max_rest.setMaximumSize(QSize(50, 50))
-        self.pushButton_max_rest.setStyleSheet(u"QPushButton {\n"
-"	background-color: transparent; \n"
-"	background-image: url(:/PNGs/Images/cil-window-maximize.png);\n"
-"	background-position: center;\n"
-"	background-repeat: no-repeat;\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(45, 45, 45); 	\n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgb(25, 25, 25); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.pushButton_max_rest.setStyleSheet(style.bts_title_bar_maximize)
 
         self.horizontalLayout.addWidget(self.pushButton_max_rest)
 
@@ -144,20 +118,7 @@ class Ui(QtWidgets.QMainWindow):
         self.pushButton_close.setObjectName(u"pushButton_close")
         self.pushButton_close.setMinimumSize(QSize(50, 50))
         self.pushButton_close.setMaximumSize(QSize(50, 50))
-        self.pushButton_close.setStyleSheet(u"QPushButton {\n"
-"	background-color: transparent; \n"
-"	background-image: url(:/PNGs/Images/cil-x.png);\n"
-"	background-position: center;\n"
-"	background-repeat: no-repeat;\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(45, 45, 45); 	\n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgb(25, 25, 25); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.pushButton_close.setStyleSheet(style.bts_title_bar_close)
 
         self.horizontalLayout.addWidget(self.pushButton_close)
 
@@ -243,18 +204,7 @@ class Ui(QtWidgets.QMainWindow):
         font2.setFamily(u"Roboto Light")
         font2.setPointSize(22)
         self.bt_8.setFont(font2)
-        self.bt_8.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgba(45, 45, 45, 50); \n"
-"	color: rgb(200, 200, 200);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgba(255, 0, 127, 100); \n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgba(255, 0, 127, 150); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.bt_8.setStyleSheet(style.bts_numbers)
 
         self.verticalLayout_8.addWidget(self.bt_8)
 
@@ -274,18 +224,7 @@ class Ui(QtWidgets.QMainWindow):
         sizePolicy1.setHeightForWidth(self.bt_9.sizePolicy().hasHeightForWidth())
         self.bt_9.setSizePolicy(sizePolicy1)
         self.bt_9.setFont(font2)
-        self.bt_9.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgba(45, 45, 45, 50); \n"
-"	color: rgb(200, 200, 200);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgba(255, 0, 127, 100); \n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgba(255, 0, 127, 150); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.bt_9.setStyleSheet(style.bts_numbers)
 
         self.verticalLayout_16.addWidget(self.bt_9)
 
@@ -305,18 +244,7 @@ class Ui(QtWidgets.QMainWindow):
         sizePolicy1.setHeightForWidth(self.bt_4.sizePolicy().hasHeightForWidth())
         self.bt_4.setSizePolicy(sizePolicy1)
         self.bt_4.setFont(font2)
-        self.bt_4.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgba(45, 45, 45, 50); \n"
-"	color: rgb(200, 200, 200);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgba(255, 0, 127, 100); \n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgba(255, 0, 127, 150); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.bt_4.setStyleSheet(style.bts_numbers)
 
         self.verticalLayout_13.addWidget(self.bt_4)
 
@@ -336,18 +264,7 @@ class Ui(QtWidgets.QMainWindow):
         sizePolicy1.setHeightForWidth(self.bt_5.sizePolicy().hasHeightForWidth())
         self.bt_5.setSizePolicy(sizePolicy1)
         self.bt_5.setFont(font2)
-        self.bt_5.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgba(45, 45, 45, 50); \n"
-"	color: rgb(200, 200, 200);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgba(255, 0, 127, 100); \n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgba(255, 0, 127, 150); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.bt_5.setStyleSheet(style.bts_numbers)
 
         self.verticalLayout_14.addWidget(self.bt_5)
 
@@ -367,18 +284,7 @@ class Ui(QtWidgets.QMainWindow):
         sizePolicy1.setHeightForWidth(self.bt_3.sizePolicy().hasHeightForWidth())
         self.bt_3.setSizePolicy(sizePolicy1)
         self.bt_3.setFont(font2)
-        self.bt_3.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgba(45, 45, 45, 50); \n"
-"	color: rgb(200, 200, 200);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgba(255, 0, 127, 100); \n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgba(255, 0, 127, 150); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.bt_3.setStyleSheet(style.bts_numbers)
 
         self.verticalLayout_12.addWidget(self.bt_3)
 
@@ -398,18 +304,7 @@ class Ui(QtWidgets.QMainWindow):
         sizePolicy1.setHeightForWidth(self.bt_1.sizePolicy().hasHeightForWidth())
         self.bt_1.setSizePolicy(sizePolicy1)
         self.bt_1.setFont(font2)
-        self.bt_1.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgba(45, 45, 45, 50); \n"
-"	color: rgb(200, 200, 200);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgba(255, 0, 127, 100); \n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgba(255, 0, 127, 150); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.bt_1.setStyleSheet(style.bts_numbers)
 
         self.verticalLayout_10.addWidget(self.bt_1)
 
@@ -429,18 +324,7 @@ class Ui(QtWidgets.QMainWindow):
         sizePolicy1.setHeightForWidth(self.bt_2.sizePolicy().hasHeightForWidth())
         self.bt_2.setSizePolicy(sizePolicy1)
         self.bt_2.setFont(font2)
-        self.bt_2.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgba(45, 45, 45, 50); \n"
-"	color: rgb(200, 200, 200);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgba(255, 0, 127, 100); \n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgba(255, 0, 127, 150); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.bt_2.setStyleSheet(style.bts_numbers)
 
         self.verticalLayout_11.addWidget(self.bt_2)
 
@@ -460,18 +344,7 @@ class Ui(QtWidgets.QMainWindow):
         sizePolicy1.setHeightForWidth(self.bt_6.sizePolicy().hasHeightForWidth())
         self.bt_6.setSizePolicy(sizePolicy1)
         self.bt_6.setFont(font2)
-        self.bt_6.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgba(45, 45, 45, 50); \n"
-"	color: rgb(200, 200, 200);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgba(255, 0, 127, 100); \n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgba(255, 0, 127, 150); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.bt_6.setStyleSheet(style.bts_numbers)
 
         self.verticalLayout_15.addWidget(self.bt_6)
 
@@ -494,18 +367,7 @@ class Ui(QtWidgets.QMainWindow):
         font3.setFamily(u"Roboto Light")
         font3.setPointSize(20)
         self.bt_plus.setFont(font3)
-        self.bt_plus.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgba(35, 35, 35, 15); \n"
-"	color: rgb(200, 200, 200);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgba(255, 0, 127, 50); \n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgba(255, 0, 127, 100); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.bt_plus.setStyleSheet(style.bts_functions)
 
         self.verticalLayout_22.addWidget(self.bt_plus)
 
@@ -527,18 +389,7 @@ class Ui(QtWidgets.QMainWindow):
         font4.setFamily(u"Roboto Light")
         font4.setPointSize(30)
         self.bt_minus.setFont(font4)
-        self.bt_minus.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgba(35, 35, 35, 15); \n"
-"	color: rgb(200, 200, 200);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgba(255, 0, 127, 50); \n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgba(255, 0, 127, 100); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.bt_minus.setStyleSheet(style.bts_functions)
 
         self.verticalLayout_21.addWidget(self.bt_minus)
 
@@ -558,18 +409,7 @@ class Ui(QtWidgets.QMainWindow):
         sizePolicy1.setHeightForWidth(self.bt_7.sizePolicy().hasHeightForWidth())
         self.bt_7.setSizePolicy(sizePolicy1)
         self.bt_7.setFont(font2)
-        self.bt_7.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgba(45, 45, 45, 50); \n"
-"	color: rgb(200, 200, 200);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgba(255, 0, 127, 100); \n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgba(255, 0, 127, 150); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.bt_7.setStyleSheet(style.bts_numbers)
 
         self.verticalLayout_7.addWidget(self.bt_7)
 
@@ -591,21 +431,7 @@ class Ui(QtWidgets.QMainWindow):
         font5.setFamily(u"Roboto Light")
         font5.setPointSize(15)
         self.bt_backspace.setFont(font5)
-        self.bt_backspace.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgba(35, 35, 35, 15);	\n"
-"	background-image: url(:/PNGs/Images/backspace.png);\n"
-"	background-position: center;\n"
-"	background-repeat: no-repeat;\n"
-"	color: rgb(200, 200, 200);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgba(255, 0, 127, 50); \n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgba(255, 0, 127, 100); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.bt_backspace.setStyleSheet(style.bts_backspace)
 
         self.verticalLayout_18.addWidget(self.bt_backspace)
 
@@ -625,18 +451,7 @@ class Ui(QtWidgets.QMainWindow):
         sizePolicy1.setHeightForWidth(self.bt_clear.sizePolicy().hasHeightForWidth())
         self.bt_clear.setSizePolicy(sizePolicy1)
         self.bt_clear.setFont(font5)
-        self.bt_clear.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgba(35, 35, 35, 15); \n"
-"	color: rgb(200, 200, 200);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgba(255, 0, 127, 50); \n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgba(255, 0, 127, 100); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.bt_clear.setStyleSheet(style.bts_functions)
 
         self.verticalLayout_3.addWidget(self.bt_clear)
 
@@ -656,18 +471,7 @@ class Ui(QtWidgets.QMainWindow):
         sizePolicy1.setHeightForWidth(self.bt_div.sizePolicy().hasHeightForWidth())
         self.bt_div.setSizePolicy(sizePolicy1)
         self.bt_div.setFont(font3)
-        self.bt_div.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgba(35, 35, 35, 15); \n"
-"	color: rgb(200, 200, 200);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgba(255, 0, 127, 50); \n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgba(255, 0, 127, 100); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.bt_div.setStyleSheet(style.bts_functions)
 
         self.verticalLayout_19.addWidget(self.bt_div)
 
@@ -687,18 +491,7 @@ class Ui(QtWidgets.QMainWindow):
         sizePolicy1.setHeightForWidth(self.bt_multiply.sizePolicy().hasHeightForWidth())
         self.bt_multiply.setSizePolicy(sizePolicy1)
         self.bt_multiply.setFont(font5)
-        self.bt_multiply.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgba(35, 35, 35, 15); \n"
-"	color: rgb(200, 200, 200);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgba(255, 0, 127, 50); \n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgba(255, 0, 127, 100); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.bt_multiply.setStyleSheet(style.bts_functions)
 
         self.verticalLayout_20.addWidget(self.bt_multiply)
 
@@ -718,18 +511,7 @@ class Ui(QtWidgets.QMainWindow):
         sizePolicy1.setHeightForWidth(self.bt_copy.sizePolicy().hasHeightForWidth())
         self.bt_copy.setSizePolicy(sizePolicy1)
         self.bt_copy.setFont(font5)
-        self.bt_copy.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgba(35, 35, 35, 15); \n"
-"	color: rgb(200, 200, 200);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgba(255, 0, 127, 50); \n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgba(255, 0, 127, 100); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.bt_copy.setStyleSheet(style.bts_functions)
 
         self.verticalLayout_17.addWidget(self.bt_copy)
 
@@ -749,18 +531,7 @@ class Ui(QtWidgets.QMainWindow):
         sizePolicy1.setHeightForWidth(self.bt_0.sizePolicy().hasHeightForWidth())
         self.bt_0.setSizePolicy(sizePolicy1)
         self.bt_0.setFont(font2)
-        self.bt_0.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgba(45, 45, 45, 50); \n"
-"	color: rgb(200, 200, 200);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgba(255, 0, 127, 100); \n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgba(255, 0, 127, 150); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.bt_0.setStyleSheet(style.bts_numbers)
 
         self.verticalLayout_9.addWidget(self.bt_0)
 
@@ -780,18 +551,7 @@ class Ui(QtWidgets.QMainWindow):
         sizePolicy1.setHeightForWidth(self.bt_dot.sizePolicy().hasHeightForWidth())
         self.bt_dot.setSizePolicy(sizePolicy1)
         self.bt_dot.setFont(font4)
-        self.bt_dot.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgba(35, 35, 35, 15); \n"
-"	color: rgb(200, 200, 200);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgba(255, 0, 127, 50); \n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgba(255, 0, 127, 100); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.bt_dot.setStyleSheet(style.bts_functions)
 
         self.verticalLayout_25.addWidget(self.bt_dot)
 
@@ -811,18 +571,7 @@ class Ui(QtWidgets.QMainWindow):
         sizePolicy1.setHeightForWidth(self.bt_equal.sizePolicy().hasHeightForWidth())
         self.bt_equal.setSizePolicy(sizePolicy1)
         self.bt_equal.setFont(font4)
-        self.bt_equal.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgba(35, 35, 35, 15); \n"
-"	color: rgb(200, 200, 200);\n"
-"	border-radius: 10px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgba(255, 0, 127, 100); \n"
-"}\n"
-"QPushButton:pressed {\n"
-"	background-color: rgba(255, 0, 127, 150); \n"
-"	border: 2px solid rgb(255, 0, 127);\n"
-"}")
+        self.bt_equal.setStyleSheet(style.bts_equal)
 
         self.verticalLayout_23.addWidget(self.bt_equal)
 
@@ -848,11 +597,11 @@ class Ui(QtWidgets.QMainWindow):
         font6.setFamily(u"Roboto")
         self.label_credits.setFont(font6)
         self.label_credits.setStyleSheet(u"QLabel { \n"
-"	background-color: transparent;\n"
-"}\n"
-"QLabel:hover { \n"
-"	color: rgb(190, 190, 190);\n"
-"}")
+        "	background-color: transparent;\n"
+        "}\n"
+        "QLabel:hover { \n"
+        "	color: rgb(190, 190, 190);\n"
+        "}")
 
         self.horizontalLayout_2.addWidget(self.label_credits)
 
@@ -862,12 +611,12 @@ class Ui(QtWidgets.QMainWindow):
 
         self.verticalLayout.addWidget(self.frame_principal)
 
-        ############################################################
+        ########################################################################
         # START - GUI FUNCTIONS
-        ############################################################
+        ########################################################################
 
         ## TITLE BAR BTS
-        ############################################################
+        ########################################################################
 
         # MINIMIZE
         self.pushButton_minimize.clicked.connect(lambda: self.showMinimized())
@@ -888,7 +637,7 @@ class Ui(QtWidgets.QMainWindow):
         self.pushButton_close.clicked.connect(lambda: self.close())
 
         ## BTS NUMBERS FUNCTIONS
-        ############################################################
+        ########################################################################
 
         # DEF WRITE NUMBER
         def writeNumber(value):
@@ -979,7 +728,7 @@ class Ui(QtWidgets.QMainWindow):
             QtCore.QTimer.singleShot(3500, lambda: self.lineEdit_values.setPlaceholderText("with"))
             QtCore.QTimer.singleShot(4500, lambda: self.lineEdit_values.setPlaceholderText("Python"))
             QtCore.QTimer.singleShot(5500, lambda: self.lineEdit_values.setPlaceholderText("and"))
-            QtCore.QTimer.singleShot(6500, lambda: self.lineEdit_values.setPlaceholderText("PyQt5"))
+            QtCore.QTimer.singleShot(6500, lambda: self.lineEdit_values.setPlaceholderText("PySide2"))
             QtCore.QTimer.singleShot(7500, lambda: self.lineEdit_values.setPlaceholderText(":D"))
             QtCore.QTimer.singleShot(8000, lambda: self.lineEdit_values.setPlaceholderText(""))
             QtCore.QTimer.singleShot(8050, lambda: self.lineEdit_values.setText(globals()['valueTemp']))
@@ -989,7 +738,7 @@ class Ui(QtWidgets.QMainWindow):
         self.bt_copy.clicked.connect(lambda: showCredits())
 
         ## LINE EDIT JUST NUMBERS AND DOT
-        ############################################################
+        ########################################################################
 
         # JUST NUMBERS AND ".", ","
         def justNumbers():
@@ -1025,7 +774,7 @@ class Ui(QtWidgets.QMainWindow):
 
 
         ## MOVE WINDOW
-        ############################################################
+        ########################################################################
         def moveWindow(event):
             delta = QPoint (event.globalPos() - self.oldPos)
             self.move(self.x() + delta.x(), self.y() + delta.y())
@@ -1041,30 +790,31 @@ class Ui(QtWidgets.QMainWindow):
         self.frame_labelTemp.mouseMoveEvent = moveWindow
 
 
-        ############################################################
+        ########################################################################
         # END - GUI FUNCTIONS
-        ############################################################
+        ########################################################################
+
         self.setCentralWidget(self.centralwidget)
         self.retranslateUi(self)
         QtCore.QMetaObject.connectSlotsByName(self)
         self.show()
 
-    # setupUi
-
+    ## RETRANSLATE
+    ############################################################################
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Calculator", None))
         self.label_title.setText(QCoreApplication.translate("MainWindow", u"Calculator", None))
-#if QT_CONFIG(tooltip)
+        #if QT_CONFIG(tooltip)
         self.pushButton_minimize.setToolTip(QCoreApplication.translate("MainWindow", u"Minimize", None))
-#endif // QT_CONFIG(tooltip)
+        #endif // QT_CONFIG(tooltip)
         self.pushButton_minimize.setText("")
-#if QT_CONFIG(tooltip)
+        #if QT_CONFIG(tooltip)
         self.pushButton_max_rest.setToolTip(QCoreApplication.translate("MainWindow", u"Maximize", None))
-#endif // QT_CONFIG(tooltip)
+        #endif // QT_CONFIG(tooltip)
         self.pushButton_max_rest.setText("")
-#if QT_CONFIG(tooltip)
+        #if QT_CONFIG(tooltip)
         self.pushButton_close.setToolTip(QCoreApplication.translate("MainWindow", u"Close", None))
-#endif // QT_CONFIG(tooltip)
+        #endif // QT_CONFIG(tooltip)
         self.pushButton_close.setText("")
         self.label_temp.setText(QCoreApplication.translate("MainWindow", u"", None))
         self.lineEdit_values.setText(QCoreApplication.translate("MainWindow", u"", None))
@@ -1090,7 +840,7 @@ class Ui(QtWidgets.QMainWindow):
         self.label_credits.setText(QCoreApplication.translate("MainWindow", u"Modern Calculator", None))
 
     ## APP EVENTS
-    ############################################################
+    ############################################################################
     def mousePressEvent(self, event):
         self.oldPos = event.globalPos()
 
