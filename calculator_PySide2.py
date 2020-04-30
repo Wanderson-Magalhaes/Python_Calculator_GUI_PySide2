@@ -29,9 +29,8 @@ class Ui(QtWidgets.QMainWindow):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/ICO/Images/Icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.setWindowIcon(icon)
-        self.setStyleSheet("color: rgb(200, 200, 200);\n"
-"background: transparent;")
-        self.oldPos = self.pos()
+        self.setStyleSheet("color: rgb(200, 200, 200); background: rgb(30, 30, 30);")
+        # self.oldPos = self.pos()
         self.centralwidget = QtWidgets.QWidget(self)
 
         #
@@ -50,8 +49,7 @@ class Ui(QtWidgets.QMainWindow):
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.frame_principal = QFrame(self.centralwidget)
         self.frame_principal.setObjectName(u"frame_principal")
-        self.frame_principal.setStyleSheet(u"margin: 0px;\n"
-"background-color: rgb(35, 35, 35);")
+        self.frame_principal.setStyleSheet(u"margin: 0px; background-color: rgb(35, 35, 35);")
         self.frame_principal.setFrameShape(QFrame.StyledPanel)
         self.frame_principal.setFrameShadow(QFrame.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.frame_principal)
@@ -150,8 +148,7 @@ class Ui(QtWidgets.QMainWindow):
         self.frame_lineEdit = QFrame(self.frame_principal)
         self.frame_lineEdit.setObjectName(u"frame_lineEdit")
         self.frame_lineEdit.setMaximumSize(QSize(16777215, 100))
-        self.frame_lineEdit.setStyleSheet(u"background-color: rgba(255, 0, 127, 230);\n"
-"border-radius: 0px; margin: 5px; border-radius: 10px;")
+        self.frame_lineEdit.setStyleSheet(u"background-color: rgba(255, 0, 127, 230); border-radius: 0px; margin: 5px; border-radius: 10px;")
         self.frame_lineEdit.setFrameShape(QFrame.StyledPanel)
         self.frame_lineEdit.setFrameShadow(QFrame.Raised)
         self.verticalLayout_6 = QVBoxLayout(self.frame_lineEdit)
@@ -167,8 +164,7 @@ class Ui(QtWidgets.QMainWindow):
         font1.setFamily(u"Roboto Light")
         font1.setPointSize(42)
         self.lineEdit_values.setFont(font1)
-        self.lineEdit_values.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-"selection-background-color: rgb(213, 0, 106); background-color: transparent;")
+        self.lineEdit_values.setStyleSheet(u"color: rgb(255, 255, 255); selection-background-color: rgb(213, 0, 106); background-color: transparent;")
         self.lineEdit_values.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.verticalLayout_6.addWidget(self.lineEdit_values)
@@ -596,12 +592,7 @@ class Ui(QtWidgets.QMainWindow):
         font6 = QFont()
         font6.setFamily(u"Roboto")
         self.label_credits.setFont(font6)
-        self.label_credits.setStyleSheet(u"QLabel { \n"
-        "	background-color: transparent;\n"
-        "}\n"
-        "QLabel:hover { \n"
-        "	color: rgb(190, 190, 190);\n"
-        "}")
+        self.label_credits.setStyleSheet(u"QLabel { background-color: transparent; } QLabel:hover { color: rgb(190, 190, 190); }")
 
         self.horizontalLayout_2.addWidget(self.label_credits)
 
@@ -627,9 +618,11 @@ class Ui(QtWidgets.QMainWindow):
             if globals()['state'] == 0:
                 self.showMaximized()
                 globals()['state'] = 1
+                self.pushButton_max_rest.setStyleSheet(style.bts_title_bar_restore)
             elif globals()['state'] == 1:
                 self.setWindowState(QtCore.Qt.WindowNoState)
                 globals()['state'] = 0
+                self.pushButton_max_rest.setStyleSheet(style.bts_title_bar_maximize)
 
         self.pushButton_max_rest.clicked.connect(lambda: maximize())
 
@@ -761,8 +754,9 @@ class Ui(QtWidgets.QMainWindow):
 
         self.lineEdit_values.textEdited.connect(lambda: justNumbers())
 
-        # HI TEXT ANIMATION
+        # WELCOME TEXT ANIMATION
         self.lineEdit_values.setFocus()
+        self.bt_copy.setEnabled(False)
         QtCore.QTimer.singleShot(200, lambda: self.lineEdit_values.setPlaceholderText("H"))
         QtCore.QTimer.singleShot(600, lambda: self.lineEdit_values.setPlaceholderText("Hi"))
         QtCore.QTimer.singleShot(1000, lambda: self.lineEdit_values.setPlaceholderText("Hi!"))
@@ -771,21 +765,28 @@ class Ui(QtWidgets.QMainWindow):
         QtCore.QTimer.singleShot(5000, lambda: self.lineEdit_values.setPlaceholderText("Here we go"))
         QtCore.QTimer.singleShot(6500, lambda: self.lineEdit_values.setPlaceholderText(":D"))
         QtCore.QTimer.singleShot(7800, lambda: self.lineEdit_values.setPlaceholderText(""))
+        QtCore.QTimer.singleShot(8000, lambda: self.bt_copy.setEnabled(True))
 
 
         ## MOVE WINDOW
         ########################################################################
         def moveWindow(event):
-            delta = QPoint (event.globalPos() - self.oldPos)
-            self.move(self.x() + delta.x(), self.y() + delta.y())
-            self.oldPos = event.globalPos()
-            if globals()['state']:
-                globals()['state'] = 0
-                maximize()
-                self.setWindowState(QtCore.Qt.WindowNoState)
-                globals()['state'] = 0
+            if event.buttons() == Qt.LeftButton:
+                self.move(self.pos() + event.globalPos() - self.dragPos)
+                self.dragPos = event.globalPos()
+                event.accept()
+                # delta = QPoint (event.globalPos() - self.oldPos)
+                # self.move(self.x() + delta.x(), self.y() + delta.y())
+                # self.oldPos = event.globalPos()
+                if globals()['state']:
+                    globals()['state'] = 0
+                    maximize()
+                    self.setWindowState(QtCore.Qt.WindowNoState)
+                    self.pushButton_max_rest.setStyleSheet(style.bts_title_bar_maximize)
+                    globals()['state'] = 0
 
         self.label_title.mouseMoveEvent = moveWindow
+        # self.label_title.mouseDoubleClickEvent
         self.label_credits.mouseMoveEvent = moveWindow
         self.frame_labelTemp.mouseMoveEvent = moveWindow
 
@@ -842,7 +843,8 @@ class Ui(QtWidgets.QMainWindow):
     ## APP EVENTS
     ############################################################################
     def mousePressEvent(self, event):
-        self.oldPos = event.globalPos()
+        self.dragPos = event.globalPos()
+        # self.oldPos = event.globalPos()
 
 if __name__ == "__main__":
     import sys
