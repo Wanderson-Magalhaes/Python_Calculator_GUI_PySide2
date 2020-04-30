@@ -1,17 +1,18 @@
 ################################################################################
-## Form generated from reading UI file 'Calculator_With_Title.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.14.2
+## STUDY PROJECT BY: WANDERSON M.
+## PROJECT MADE WITH: Qt Designer and PySide2
+## V: 0.1
 ##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
 from PySide2 import QtCore, QtGui, QtWidgets
 from PySide2.QtCore import (QCoreApplication, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt)
 from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
 from PySide2.QtWidgets import *
-
+# IMPORT IMAGES FILE
 import files_rc
+# IMPORT QSS
 from styles import *
 
 class Ui(QtWidgets.QMainWindow):
@@ -19,6 +20,7 @@ class Ui(QtWidgets.QMainWindow):
         super(Ui, self).__init__()
 
         #
+        # MAIN WINDOW PARAMETERS
         # CHANGE "MainWindow" TO "self"
         #
 
@@ -30,16 +32,14 @@ class Ui(QtWidgets.QMainWindow):
         icon.addPixmap(QtGui.QPixmap(":/ICO/Images/Icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.setWindowIcon(icon)
         self.setStyleSheet("color: rgb(200, 200, 200); background: rgb(30, 30, 30);")
-        # self.oldPos = self.pos()
         self.centralwidget = QtWidgets.QWidget(self)
 
         #
         # START GUI SCRIPT
         #
-        ######
-        ##############
         ############################################################################################
 
+        # START --- WIDGETS
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setMinimumSize(QSize(0, 0))
         self.centralwidget.setStyleSheet(u"background: transparent;")
@@ -80,12 +80,8 @@ class Ui(QtWidgets.QMainWindow):
         font.setPointSize(12)
         self.label_title.setFont(font)
         self.label_title.setStyleSheet(u"background-color: transparent;")
-
         self.verticalLayout_4.addWidget(self.label_title)
-
-
         self.horizontalLayout_3.addWidget(self.frame_17)
-
         self.frame_18 = QFrame(self.frame_topMenu)
         self.frame_18.setObjectName(u"frame_18")
         self.frame_18.setMaximumSize(QSize(170, 16777215))
@@ -101,31 +97,21 @@ class Ui(QtWidgets.QMainWindow):
         self.pushButton_minimize.setMinimumSize(QSize(50, 50))
         self.pushButton_minimize.setMaximumSize(QSize(50, 50))
         self.pushButton_minimize.setStyleSheet(style.bts_title_bar_minimize)
-
         self.horizontalLayout.addWidget(self.pushButton_minimize)
-
         self.pushButton_max_rest = QPushButton(self.frame_18)
         self.pushButton_max_rest.setObjectName(u"pushButton_max_rest")
         self.pushButton_max_rest.setMinimumSize(QSize(50, 50))
         self.pushButton_max_rest.setMaximumSize(QSize(50, 50))
         self.pushButton_max_rest.setStyleSheet(style.bts_title_bar_maximize)
-
         self.horizontalLayout.addWidget(self.pushButton_max_rest)
-
         self.pushButton_close = QPushButton(self.frame_18)
         self.pushButton_close.setObjectName(u"pushButton_close")
         self.pushButton_close.setMinimumSize(QSize(50, 50))
         self.pushButton_close.setMaximumSize(QSize(50, 50))
         self.pushButton_close.setStyleSheet(style.bts_title_bar_close)
-
         self.horizontalLayout.addWidget(self.pushButton_close)
-
-
         self.horizontalLayout_3.addWidget(self.frame_18)
-
-
         self.verticalLayout_2.addWidget(self.frame_topMenu)
-
         self.frame_labelTemp = QFrame(self.frame_principal)
         self.frame_labelTemp.setObjectName(u"frame_labelTemp")
         self.frame_labelTemp.setMaximumSize(QSize(16777215, 35))
@@ -139,12 +125,8 @@ class Ui(QtWidgets.QMainWindow):
         self.label_temp.setObjectName(u"label_temp")
         self.label_temp.setStyleSheet(u"background-color: transparent;")
         self.label_temp.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
         self.verticalLayout_5.addWidget(self.label_temp)
-
-
         self.verticalLayout_2.addWidget(self.frame_labelTemp)
-
         self.frame_lineEdit = QFrame(self.frame_principal)
         self.frame_lineEdit.setObjectName(u"frame_lineEdit")
         self.frame_lineEdit.setMaximumSize(QSize(16777215, 100))
@@ -166,12 +148,8 @@ class Ui(QtWidgets.QMainWindow):
         self.lineEdit_values.setFont(font1)
         self.lineEdit_values.setStyleSheet(u"color: rgb(255, 255, 255); selection-background-color: rgb(213, 0, 106); background-color: transparent;")
         self.lineEdit_values.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
         self.verticalLayout_6.addWidget(self.lineEdit_values)
-
-
         self.verticalLayout_2.addWidget(self.frame_lineEdit)
-
         self.frame_buttons = QFrame(self.frame_principal)
         self.frame_buttons.setObjectName(u"frame_buttons")
         self.frame_buttons.setStyleSheet(u"background-color: transparent;")
@@ -201,12 +179,8 @@ class Ui(QtWidgets.QMainWindow):
         font2.setPointSize(22)
         self.bt_8.setFont(font2)
         self.bt_8.setStyleSheet(style.bts_numbers)
-
         self.verticalLayout_8.addWidget(self.bt_8)
-
-
         self.gridLayout.addWidget(self.frame_19, 1, 3, 1, 1)
-
         self.frame_7 = QFrame(self.frame_buttons)
         self.frame_7.setObjectName(u"frame_7")
         self.frame_7.setFrameShape(QFrame.StyledPanel)
@@ -221,12 +195,8 @@ class Ui(QtWidgets.QMainWindow):
         self.bt_9.setSizePolicy(sizePolicy1)
         self.bt_9.setFont(font2)
         self.bt_9.setStyleSheet(style.bts_numbers)
-
         self.verticalLayout_16.addWidget(self.bt_9)
-
-
         self.gridLayout.addWidget(self.frame_7, 1, 4, 1, 1)
-
         self.frame_9 = QFrame(self.frame_buttons)
         self.frame_9.setObjectName(u"frame_9")
         self.frame_9.setFrameShape(QFrame.StyledPanel)
@@ -241,12 +211,8 @@ class Ui(QtWidgets.QMainWindow):
         self.bt_4.setSizePolicy(sizePolicy1)
         self.bt_4.setFont(font2)
         self.bt_4.setStyleSheet(style.bts_numbers)
-
         self.verticalLayout_13.addWidget(self.bt_4)
-
-
         self.gridLayout.addWidget(self.frame_9, 2, 2, 1, 1)
-
         self.frame_10 = QFrame(self.frame_buttons)
         self.frame_10.setObjectName(u"frame_10")
         self.frame_10.setFrameShape(QFrame.StyledPanel)
@@ -261,12 +227,8 @@ class Ui(QtWidgets.QMainWindow):
         self.bt_5.setSizePolicy(sizePolicy1)
         self.bt_5.setFont(font2)
         self.bt_5.setStyleSheet(style.bts_numbers)
-
         self.verticalLayout_14.addWidget(self.bt_5)
-
-
         self.gridLayout.addWidget(self.frame_10, 2, 3, 1, 1)
-
         self.frame_15 = QFrame(self.frame_buttons)
         self.frame_15.setObjectName(u"frame_15")
         self.frame_15.setFrameShape(QFrame.StyledPanel)
@@ -281,12 +243,8 @@ class Ui(QtWidgets.QMainWindow):
         self.bt_3.setSizePolicy(sizePolicy1)
         self.bt_3.setFont(font2)
         self.bt_3.setStyleSheet(style.bts_numbers)
-
         self.verticalLayout_12.addWidget(self.bt_3)
-
-
         self.gridLayout.addWidget(self.frame_15, 3, 4, 1, 1)
-
         self.frame_13 = QFrame(self.frame_buttons)
         self.frame_13.setObjectName(u"frame_13")
         self.frame_13.setFrameShape(QFrame.StyledPanel)
@@ -301,12 +259,8 @@ class Ui(QtWidgets.QMainWindow):
         self.bt_1.setSizePolicy(sizePolicy1)
         self.bt_1.setFont(font2)
         self.bt_1.setStyleSheet(style.bts_numbers)
-
         self.verticalLayout_10.addWidget(self.bt_1)
-
-
         self.gridLayout.addWidget(self.frame_13, 3, 2, 1, 1)
-
         self.frame_14 = QFrame(self.frame_buttons)
         self.frame_14.setObjectName(u"frame_14")
         self.frame_14.setFrameShape(QFrame.StyledPanel)
@@ -321,12 +275,8 @@ class Ui(QtWidgets.QMainWindow):
         self.bt_2.setSizePolicy(sizePolicy1)
         self.bt_2.setFont(font2)
         self.bt_2.setStyleSheet(style.bts_numbers)
-
         self.verticalLayout_11.addWidget(self.bt_2)
-
-
         self.gridLayout.addWidget(self.frame_14, 3, 3, 1, 1)
-
         self.frame_11 = QFrame(self.frame_buttons)
         self.frame_11.setObjectName(u"frame_11")
         self.frame_11.setFrameShape(QFrame.StyledPanel)
@@ -341,12 +291,8 @@ class Ui(QtWidgets.QMainWindow):
         self.bt_6.setSizePolicy(sizePolicy1)
         self.bt_6.setFont(font2)
         self.bt_6.setStyleSheet(style.bts_numbers)
-
         self.verticalLayout_15.addWidget(self.bt_6)
-
-
         self.gridLayout.addWidget(self.frame_11, 2, 4, 1, 1)
-
         self.frame_12 = QFrame(self.frame_buttons)
         self.frame_12.setObjectName(u"frame_12")
         self.frame_12.setFrameShape(QFrame.StyledPanel)
@@ -364,12 +310,8 @@ class Ui(QtWidgets.QMainWindow):
         font3.setPointSize(20)
         self.bt_plus.setFont(font3)
         self.bt_plus.setStyleSheet(style.bts_functions)
-
         self.verticalLayout_22.addWidget(self.bt_plus)
-
-
         self.gridLayout.addWidget(self.frame_12, 2, 5, 1, 1)
-
         self.frame_8 = QFrame(self.frame_buttons)
         self.frame_8.setObjectName(u"frame_8")
         self.frame_8.setFrameShape(QFrame.StyledPanel)
@@ -386,12 +328,8 @@ class Ui(QtWidgets.QMainWindow):
         font4.setPointSize(30)
         self.bt_minus.setFont(font4)
         self.bt_minus.setStyleSheet(style.bts_functions)
-
         self.verticalLayout_21.addWidget(self.bt_minus)
-
-
         self.gridLayout.addWidget(self.frame_8, 1, 5, 1, 1)
-
         self.frame_5 = QFrame(self.frame_buttons)
         self.frame_5.setObjectName(u"frame_5")
         self.frame_5.setFrameShape(QFrame.StyledPanel)
@@ -406,12 +344,8 @@ class Ui(QtWidgets.QMainWindow):
         self.bt_7.setSizePolicy(sizePolicy1)
         self.bt_7.setFont(font2)
         self.bt_7.setStyleSheet(style.bts_numbers)
-
         self.verticalLayout_7.addWidget(self.bt_7)
-
-
         self.gridLayout.addWidget(self.frame_5, 1, 2, 1, 1)
-
         self.frame_2 = QFrame(self.frame_buttons)
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setFrameShape(QFrame.StyledPanel)
@@ -428,12 +362,8 @@ class Ui(QtWidgets.QMainWindow):
         font5.setPointSize(15)
         self.bt_backspace.setFont(font5)
         self.bt_backspace.setStyleSheet(style.bts_backspace)
-
         self.verticalLayout_18.addWidget(self.bt_backspace)
-
-
         self.gridLayout.addWidget(self.frame_2, 0, 3, 1, 1)
-
         self.frame_1 = QFrame(self.frame_buttons)
         self.frame_1.setObjectName(u"frame_1")
         self.frame_1.setFrameShape(QFrame.StyledPanel)
@@ -448,12 +378,8 @@ class Ui(QtWidgets.QMainWindow):
         self.bt_clear.setSizePolicy(sizePolicy1)
         self.bt_clear.setFont(font5)
         self.bt_clear.setStyleSheet(style.bts_functions)
-
         self.verticalLayout_3.addWidget(self.bt_clear)
-
-
         self.gridLayout.addWidget(self.frame_1, 0, 2, 1, 1)
-
         self.frame_3 = QFrame(self.frame_buttons)
         self.frame_3.setObjectName(u"frame_3")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
@@ -468,12 +394,8 @@ class Ui(QtWidgets.QMainWindow):
         self.bt_div.setSizePolicy(sizePolicy1)
         self.bt_div.setFont(font3)
         self.bt_div.setStyleSheet(style.bts_functions)
-
         self.verticalLayout_19.addWidget(self.bt_div)
-
-
         self.gridLayout.addWidget(self.frame_3, 0, 4, 1, 1)
-
         self.frame_4 = QFrame(self.frame_buttons)
         self.frame_4.setObjectName(u"frame_4")
         self.frame_4.setFrameShape(QFrame.StyledPanel)
@@ -488,12 +410,8 @@ class Ui(QtWidgets.QMainWindow):
         self.bt_multiply.setSizePolicy(sizePolicy1)
         self.bt_multiply.setFont(font5)
         self.bt_multiply.setStyleSheet(style.bts_functions)
-
         self.verticalLayout_20.addWidget(self.bt_multiply)
-
-
         self.gridLayout.addWidget(self.frame_4, 0, 5, 1, 1)
-
         self.frame_6 = QFrame(self.frame_buttons)
         self.frame_6.setObjectName(u"frame_6")
         self.frame_6.setFrameShape(QFrame.StyledPanel)
@@ -508,12 +426,8 @@ class Ui(QtWidgets.QMainWindow):
         self.bt_copy.setSizePolicy(sizePolicy1)
         self.bt_copy.setFont(font5)
         self.bt_copy.setStyleSheet(style.bts_functions)
-
         self.verticalLayout_17.addWidget(self.bt_copy)
-
-
         self.gridLayout.addWidget(self.frame_6, 4, 2, 1, 1)
-
         self.frame_20 = QFrame(self.frame_buttons)
         self.frame_20.setObjectName(u"frame_20")
         self.frame_20.setFrameShape(QFrame.StyledPanel)
@@ -528,12 +442,8 @@ class Ui(QtWidgets.QMainWindow):
         self.bt_0.setSizePolicy(sizePolicy1)
         self.bt_0.setFont(font2)
         self.bt_0.setStyleSheet(style.bts_numbers)
-
         self.verticalLayout_9.addWidget(self.bt_0)
-
-
         self.gridLayout.addWidget(self.frame_20, 4, 3, 1, 1)
-
         self.frame_21 = QFrame(self.frame_buttons)
         self.frame_21.setObjectName(u"frame_21")
         self.frame_21.setFrameShape(QFrame.StyledPanel)
@@ -548,12 +458,8 @@ class Ui(QtWidgets.QMainWindow):
         self.bt_dot.setSizePolicy(sizePolicy1)
         self.bt_dot.setFont(font4)
         self.bt_dot.setStyleSheet(style.bts_functions)
-
         self.verticalLayout_25.addWidget(self.bt_dot)
-
-
         self.gridLayout.addWidget(self.frame_21, 4, 4, 1, 1)
-
         self.frame_22 = QFrame(self.frame_buttons)
         self.frame_22.setObjectName(u"frame_22")
         self.frame_22.setFrameShape(QFrame.StyledPanel)
@@ -568,15 +474,9 @@ class Ui(QtWidgets.QMainWindow):
         self.bt_equal.setSizePolicy(sizePolicy1)
         self.bt_equal.setFont(font4)
         self.bt_equal.setStyleSheet(style.bts_equal)
-
         self.verticalLayout_23.addWidget(self.bt_equal)
-
-
         self.gridLayout.addWidget(self.frame_22, 3, 5, 2, 1)
-
-
         self.verticalLayout_2.addWidget(self.frame_buttons)
-
         self.frame_credits = QFrame(self.frame_principal)
         self.frame_credits.setObjectName(u"frame_credits")
         self.frame_credits.setMinimumSize(QSize(0, 0))
@@ -593,14 +493,10 @@ class Ui(QtWidgets.QMainWindow):
         font6.setFamily(u"Roboto")
         self.label_credits.setFont(font6)
         self.label_credits.setStyleSheet(u"QLabel { background-color: transparent; } QLabel:hover { color: rgb(190, 190, 190); }")
-
         self.horizontalLayout_2.addWidget(self.label_credits)
-
-
         self.verticalLayout_2.addWidget(self.frame_credits)
-
-
         self.verticalLayout.addWidget(self.frame_principal)
+        # END --- WIDGETS
 
         ########################################################################
         # START - GUI FUNCTIONS
@@ -689,7 +585,6 @@ class Ui(QtWidgets.QMainWindow):
                 self.label_temp.setText(tempValue + ' ' + operator)
                 globals()['operator'] = operator
 
-
         # Bts Operators
         self.bt_div.clicked.connect(lambda: setOperations('÷'))
         self.bt_multiply.clicked.connect(lambda: setOperations('x'))
@@ -727,7 +622,6 @@ class Ui(QtWidgets.QMainWindow):
             QtCore.QTimer.singleShot(8050, lambda: self.lineEdit_values.setText(globals()['valueTemp']))
             QtCore.QTimer.singleShot(8100, lambda: self.bt_copy.setEnabled(True))
 
-
         self.bt_copy.clicked.connect(lambda: showCredits())
 
         ## LINE EDIT JUST NUMBERS AND DOT
@@ -754,7 +648,8 @@ class Ui(QtWidgets.QMainWindow):
 
         self.lineEdit_values.textEdited.connect(lambda: justNumbers())
 
-        # WELCOME TEXT ANIMATION
+        ## WELCOME TEXT ANIMATION
+        ########################################################################
         self.lineEdit_values.setFocus()
         self.bt_copy.setEnabled(False)
         QtCore.QTimer.singleShot(200, lambda: self.lineEdit_values.setPlaceholderText("H"))
@@ -775,9 +670,6 @@ class Ui(QtWidgets.QMainWindow):
                 self.move(self.pos() + event.globalPos() - self.dragPos)
                 self.dragPos = event.globalPos()
                 event.accept()
-                # delta = QPoint (event.globalPos() - self.oldPos)
-                # self.move(self.x() + delta.x(), self.y() + delta.y())
-                # self.oldPos = event.globalPos()
                 if globals()['state']:
                     globals()['state'] = 0
                     maximize()
@@ -786,7 +678,6 @@ class Ui(QtWidgets.QMainWindow):
                     globals()['state'] = 0
 
         self.label_title.mouseMoveEvent = moveWindow
-        # self.label_title.mouseDoubleClickEvent
         self.label_credits.mouseMoveEvent = moveWindow
         self.frame_labelTemp.mouseMoveEvent = moveWindow
 
@@ -795,9 +686,11 @@ class Ui(QtWidgets.QMainWindow):
         # END - GUI FUNCTIONS
         ########################################################################
 
+        # CHANGE "MainWindow" TO "self"
         self.setCentralWidget(self.centralwidget)
         self.retranslateUi(self)
         QtCore.QMetaObject.connectSlotsByName(self)
+        ## SHOW WINDOW
         self.show()
 
     ## RETRANSLATE
@@ -820,7 +713,7 @@ class Ui(QtWidgets.QMainWindow):
         self.label_temp.setText(QCoreApplication.translate("MainWindow", u"", None))
         self.lineEdit_values.setText(QCoreApplication.translate("MainWindow", u"", None))
         self.bt_8.setText(QCoreApplication.translate("MainWindow", u"8", None))
-        self.bt_9.setText(QCoreApplication.translate("MainWindow", u"8", None))
+        self.bt_9.setText(QCoreApplication.translate("MainWindow", u"9", None))
         self.bt_4.setText(QCoreApplication.translate("MainWindow", u"4", None))
         self.bt_5.setText(QCoreApplication.translate("MainWindow", u"5", None))
         self.bt_3.setText(QCoreApplication.translate("MainWindow", u"3", None))
@@ -844,7 +737,10 @@ class Ui(QtWidgets.QMainWindow):
     ############################################################################
     def mousePressEvent(self, event):
         self.dragPos = event.globalPos()
-        # self.oldPos = event.globalPos()
+        print('CLICK')
+
+    def keyPressEvent(self, event):
+        pass
 
 if __name__ == "__main__":
     import sys

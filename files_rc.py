@@ -1,7 +1,10 @@
-# Resource object code (Python 3)
-# Created by: object code
-# Created by: The Resource Compiler for Qt version 5.14.2
-# WARNING! All changes made in this file will be lost!
+################################################################################
+##
+## STUDY PROJECT BY: WANDERSON M.
+## PROJECT MADE WITH: Qt Designer and PySide2
+## V: 0.1
+##
+################################################################################
 
 from PySide2 import QtCore
 

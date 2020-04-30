@@ -1,3 +1,11 @@
+################################################################################
+##
+## STUDY PROJECT BY: WANDERSON M.
+## PROJECT MADE WITH: Qt Designer and PySide2
+## V: 0.1
+##
+################################################################################
+
 class style():
 
     # BTS TITLE BAR
@@ -51,7 +59,6 @@ class style():
     "	border: 2px solid rgb(255, 0, 127);\n"
     "}")
 
-
     # BT CLOSE  ==> NORMAL
     bts_title_bar_close = (u"QPushButton {\n"
     "	background-color: transparent; \n"
@@ -67,7 +74,6 @@ class style():
     "	background-color: rgb(25, 25, 25); \n"
     "	border: 2px solid rgb(255, 0, 127);\n"
     "}")
-
 
     # BTS NUMBERS STYLE
     ############################################################################
@@ -85,7 +91,6 @@ class style():
     "	background-color: rgba(255, 0, 127, 150); \n"
     "	border: 2px solid rgb(255, 0, 127);\n"
     "}")
-
 
     # FUNCTIONS BUTTONS
     ############################################################################
