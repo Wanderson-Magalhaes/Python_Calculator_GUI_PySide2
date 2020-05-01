@@ -496,6 +496,29 @@ class Ui(QtWidgets.QMainWindow):
         self.horizontalLayout_2.addWidget(self.label_credits)
         self.verticalLayout_2.addWidget(self.frame_credits)
         self.verticalLayout.addWidget(self.frame_principal)
+
+        # TAB INDEX ORDER
+        self.setTabOrder(self.pushButton_minimize, self.pushButton_max_rest)
+        self.setTabOrder(self.pushButton_max_rest, self.pushButton_close)
+        self.setTabOrder(self.pushButton_close, self.lineEdit_values)
+        self.setTabOrder(self.bt_0, self.bt_1)
+        self.setTabOrder(self.bt_1, self.bt_2)
+        self.setTabOrder(self.bt_2, self.bt_3)
+        self.setTabOrder(self.bt_3, self.bt_4)
+        self.setTabOrder(self.bt_4, self.bt_5)
+        self.setTabOrder(self.bt_5, self.bt_6)
+        self.setTabOrder(self.bt_6, self.bt_7)
+        self.setTabOrder(self.bt_7, self.bt_8)
+        self.setTabOrder(self.bt_8, self.bt_9)
+        self.setTabOrder(self.bt_9, self.bt_dot)
+        self.setTabOrder(self.bt_clear, self.bt_backspace)
+        self.setTabOrder(self.bt_backspace, self.bt_div)
+        self.setTabOrder(self.bt_div, self.bt_multiply)
+        self.setTabOrder(self.bt_multiply, self.bt_minus)
+        self.setTabOrder(self.bt_minus, self.bt_plus)
+        self.setTabOrder(self.bt_plus, self.bt_equal)
+        self.setTabOrder(self.bt_equal, self.bt_copy)
+
         # END --- WIDGETS
 
         ########################################################################
@@ -532,7 +555,7 @@ class Ui(QtWidgets.QMainWindow):
         def writeNumber(value):
             numbers = self.lineEdit_values.text()
             self.lineEdit_values.setText(numbers + str(value))
-            clearRepeat()
+            self.clearRepeat()
 
         # BTS NUMBERS
         self.bt_0.clicked.connect(lambda: writeNumber(0))
@@ -552,38 +575,15 @@ class Ui(QtWidgets.QMainWindow):
         def clearFields():
             self.label_temp.setText('')
             self.lineEdit_values.setText('')
+            self.lineEdit_values.setFocus()
 
         self.bt_clear.clicked.connect(lambda: clearFields())
 
-        # BT BACKSPACE
-        def clearClick():
-            values = self.lineEdit_values.text()
-            if values != '':
-                values = values[:-1]
-                self.lineEdit_values.setText(values)
 
-        self.bt_backspace.clicked.connect(lambda: clearClick())
+        # BACKSPACE
+        self.bt_backspace.clicked.connect(lambda: self.clearClick())
 
-        # BTS OPERATIONS
-        globals()['operator'] = ''
-        def setOperations(operator):
-            value = self.lineEdit_values.text()
-            tempValue = self.label_temp.text()
 
-            if tempValue != '' and value != '':
-                join_values = str(tempValue + value).replace(' ', '').replace('÷','/').replace('x','*')
-                result = eval(join_values)
-                self.label_temp.setText(str(result) + ' ' + operator)
-                self.lineEdit_values.setText('')
-                globals()['operator'] = operator
-            elif value != '':
-                self.label_temp.setText(value + ' ' + operator)
-                self.lineEdit_values.setText('')
-                globals()['operator'] = operator
-            elif tempValue != '':
-                tempValue = tempValue.replace('%','').replace('÷','').replace('x','').replace('-','').replace('+','').replace(' ','')
-                self.label_temp.setText(tempValue + ' ' + operator)
-                globals()['operator'] = operator
 
         # Bts Operators
         self.bt_div.clicked.connect(lambda: setOperations('÷'))
@@ -592,17 +592,7 @@ class Ui(QtWidgets.QMainWindow):
         self.bt_plus.clicked.connect(lambda: setOperations('+'))
 
         # BT EQUAL
-        def returnValue():
-            value = self.lineEdit_values.text()
-            tempValue = self.label_temp.text()
-
-            if tempValue != '' and value != '':
-                join_values = str(tempValue + value).replace(' ', '').replace('÷','/').replace('x','*')
-                result = eval(join_values)
-                self.label_temp.setText('')
-                self.lineEdit_values.setText(str(result))
-
-        self.bt_equal.clicked.connect(lambda: returnValue())
+        self.bt_equal.clicked.connect(lambda: self.returnValue())
 
         # BT CREDITS
         globals()['valueTemp'] = ''
@@ -611,7 +601,7 @@ class Ui(QtWidgets.QMainWindow):
             globals()['valueTemp'] = self.lineEdit_values.text()
             self.lineEdit_values.setText('')
             QtCore.QTimer.singleShot(100, lambda: self.lineEdit_values.setPlaceholderText("Created"))
-            QtCore.QTimer.singleShot(1500, lambda: self.lineEdit_values.setPlaceholderText("by:"))
+            QtCore.QTimer.singleShot(1300, lambda: self.lineEdit_values.setPlaceholderText("by:"))
             QtCore.QTimer.singleShot(2100, lambda: self.lineEdit_values.setPlaceholderText("Wanderson"))
             QtCore.QTimer.singleShot(3500, lambda: self.lineEdit_values.setPlaceholderText("with"))
             QtCore.QTimer.singleShot(4500, lambda: self.lineEdit_values.setPlaceholderText("Python"))
@@ -624,29 +614,9 @@ class Ui(QtWidgets.QMainWindow):
 
         self.bt_copy.clicked.connect(lambda: showCredits())
 
-        ## LINE EDIT JUST NUMBERS AND DOT
+        ## KEY PRESSED
         ########################################################################
-
-        # JUST NUMBERS AND ".", ","
-        def justNumbers():
-            text = str(self.lineEdit_values.text())
-            clear = ''.join([n for n in text if n.isdigit() or n == '.' or n == ','])
-            s = text.isdigit()
-
-            if s:
-                self.lineEdit_values.setText(text)
-                clearRepeat()
-            else:
-                self.lineEdit_values.setText(clear)
-                clearRepeat()
-
-        # CLEAR MULTIPLES DOTs
-        def clearRepeat():
-            text = str(self.lineEdit_values.text())
-            text = text.replace(',','.')
-            return self.lineEdit_values.setText(text.replace('..','.'))
-
-        self.lineEdit_values.textEdited.connect(lambda: justNumbers())
+        self.lineEdit_values.keyPressEvent = self.keyPressEvent
 
         ## WELCOME TEXT ANIMATION
         ########################################################################
@@ -733,14 +703,107 @@ class Ui(QtWidgets.QMainWindow):
         self.bt_equal.setText(QCoreApplication.translate("MainWindow", u"=", None))
         self.label_credits.setText(QCoreApplication.translate("MainWindow", u"Modern Calculator", None))
 
-    ## APP EVENTS
+    ## START -- APP EVENTS
     ############################################################################
     def mousePressEvent(self, event):
         self.dragPos = event.globalPos()
-        print('CLICK')
+        self.lineEdit_values.setFocus()
+
+    # BT EQUAL
+    def returnValue(self):
+        value = self.lineEdit_values.text()
+        tempValue = self.label_temp.text()
+
+        if tempValue != '' and value != '':
+            join_values = str(tempValue + value).replace(' ', '').replace('÷','/').replace('x','*')
+            result = eval(join_values)
+            self.label_temp.setText('')
+            self.lineEdit_values.setText(str(result))
+        self.lineEdit_values.setFocus()
+
+
+    # JUST NUMBERS AND ".", ","
+    def justNumbers(self, value):
+        text = str(self.lineEdit_values.text())
+        value = str(value)
+        clear = ''.join([n for n in value if n.isdigit() or n == '.' or n == ','])
+        s = value.isdigit()
+
+        if s:
+            self.lineEdit_values.setText(text + value)
+            self.clearRepeat()
+        else:
+            self.lineEdit_values.setText(text + clear)
+            self.clearRepeat()
+        self.lineEdit_values.setFocus()
+
+    # CLEAR MULTIPLES DOTs
+    def clearRepeat(self):
+        text = str(self.lineEdit_values.text())
+        text = text.replace(',','.').replace('+', '').replace('/', '').replace('*', '').replace('--', '-')
+        return self.lineEdit_values.setText(text.replace('..','.'))
+
+    # BT BACKSPACE
+    def clearClick(self):
+        values = self.lineEdit_values.text()
+        if values != '':
+            values = values[:-1]
+            self.lineEdit_values.setText(values)
+        self.lineEdit_values.setFocus()
+
+    # BTS OPERATIONS
+    globals()['operator'] = ''
+    def setOperations(self, operator):
+        value = self.lineEdit_values.text()
+        tempValue = self.label_temp.text()
+
+        if tempValue != '' and value != '':
+            join_values = str(tempValue + value).replace(' ', '').replace('÷','/').replace('x','*')
+            result = eval(join_values)
+            self.label_temp.setText(str(result) + ' ' + operator)
+            self.lineEdit_values.setText('')
+            globals()['operator'] = operator
+            print(result)
+        elif value != '':
+            self.label_temp.setText(value + ' ' + operator)
+            self.lineEdit_values.setText('')
+            globals()['operator'] = operator
+        elif tempValue != '':
+            tempValue = tempValue[:-1].replace(' ','')
+            self.label_temp.setText(tempValue + ' ' + operator)
+            globals()['operator'] = operator
+        self.lineEdit_values.setFocus()
 
     def keyPressEvent(self, event):
-        pass
+        # PRESS ENTER
+        if event.key() == Qt.Key_Enter or event.key() == Qt.Key_Return:
+            self.returnValue()
+            self.lineEdit_values.setFocus()
+            event.accept()
+
+        if event.key() == Qt.Key_Backspace:
+            self.clearClick()
+
+        if event.text() == '-':
+            if self.label_temp.text() == '' and self.lineEdit_values.text() == '':
+                self.label_temp.setText('0-')
+            self.setOperations('-')
+        if event.text() == '+':
+            self.setOperations('+')
+        if event.text() == '*':
+            self.setOperations('x')
+        if event.text() == '/':
+            self.setOperations('÷')
+
+
+
+        self.justNumbers(event.text())
+
+        print(event.text())
+        print(event.key())
+
+    ## END -- APP EVENTS
+    ############################################################################
 
 if __name__ == "__main__":
     import sys
