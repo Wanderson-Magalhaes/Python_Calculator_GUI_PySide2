@@ -1,5 +1,5 @@
-# Python_Calculator_GUI_PySide2
-Study project
+# Python Calculator GUI PySide2
+This is my first application created with Python and using PySide2
 
-REQUERIMENTS:
+# REQUERIMENTS:
 PySide2: pip install PySide2
