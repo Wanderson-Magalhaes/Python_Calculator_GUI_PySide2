@@ -31,7 +31,7 @@ class Ui(QtWidgets.QMainWindow):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/ICO/Images/Icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.setWindowIcon(icon)
-        self.setStyleSheet("color: rgb(200, 200, 200); background: rgb(30, 30, 30);")
+        self.setStyleSheet(style.mainWindow)
         self.centralwidget = QtWidgets.QWidget(self)
 
         #
@@ -537,10 +537,12 @@ class Ui(QtWidgets.QMainWindow):
             if globals()['state'] == 0:
                 self.showMaximized()
                 globals()['state'] = 1
+                self.pushButton_max_rest.setToolTip("Restore")
                 self.pushButton_max_rest.setStyleSheet(style.bts_title_bar_restore)
             elif globals()['state'] == 1:
                 self.setWindowState(QtCore.Qt.WindowNoState)
                 globals()['state'] = 0
+                self.pushButton_max_rest.setToolTip("Maximize")
                 self.pushButton_max_rest.setStyleSheet(style.bts_title_bar_maximize)
 
         self.pushButton_max_rest.clicked.connect(lambda: maximize())
@@ -586,10 +588,10 @@ class Ui(QtWidgets.QMainWindow):
 
 
         # Bts Operators
-        self.bt_div.clicked.connect(lambda: setOperations('÷'))
-        self.bt_multiply.clicked.connect(lambda: setOperations('x'))
-        self.bt_minus.clicked.connect(lambda: setOperations('-'))
-        self.bt_plus.clicked.connect(lambda: setOperations('+'))
+        self.bt_div.clicked.connect(lambda: self.setOperations('÷'))
+        self.bt_multiply.clicked.connect(lambda: self.setOperations('x'))
+        self.bt_minus.clicked.connect(lambda: self.setOperations('-'))
+        self.bt_plus.clicked.connect(lambda: self.setOperations('+'))
 
         # BT EQUAL
         self.bt_equal.clicked.connect(lambda: self.returnValue())
@@ -647,9 +649,11 @@ class Ui(QtWidgets.QMainWindow):
                     self.pushButton_max_rest.setStyleSheet(style.bts_title_bar_maximize)
                     globals()['state'] = 0
 
-        self.label_title.mouseMoveEvent = moveWindow
-        self.label_credits.mouseMoveEvent = moveWindow
+        self.frame_topMenu.mouseMoveEvent = moveWindow
         self.frame_labelTemp.mouseMoveEvent = moveWindow
+        #self.label_title.mouseMoveEvent = moveWindow
+        self.label_credits.mouseMoveEvent = moveWindow
+
 
 
         ########################################################################
@@ -705,6 +709,20 @@ class Ui(QtWidgets.QMainWindow):
 
     ## START -- APP EVENTS
     ############################################################################
+
+    # RESIZE EVENT
+    def resizeEvent(self, event):
+        self.someFunction()
+        return super(Ui, self).resizeEvent(event)
+
+    def someFunction(self):
+        if self.height() > 600:
+            maximumSize = (self.height() / 20)
+            self.frame_lineEdit.setMaximumSize(QSize(16777215, (100 + maximumSize * 2)))
+        else:
+            self.frame_lineEdit.setMaximumSize(QSize(16777215, 100))
+
+    # MOUSE CLICK
     def mousePressEvent(self, event):
         self.dragPos = event.globalPos()
         self.lineEdit_values.setFocus()
@@ -763,7 +781,6 @@ class Ui(QtWidgets.QMainWindow):
             self.label_temp.setText(str(result) + ' ' + operator)
             self.lineEdit_values.setText('')
             globals()['operator'] = operator
-            print(result)
         elif value != '':
             self.label_temp.setText(value + ' ' + operator)
             self.lineEdit_values.setText('')
@@ -781,9 +798,11 @@ class Ui(QtWidgets.QMainWindow):
             self.lineEdit_values.setFocus()
             event.accept()
 
+        # BACKSPACE
         if event.key() == Qt.Key_Backspace:
             self.clearClick()
 
+        # OPERATIONS
         if event.text() == '-':
             if self.label_temp.text() == '' and self.lineEdit_values.text() == '':
                 self.label_temp.setText('0-')
@@ -795,12 +814,8 @@ class Ui(QtWidgets.QMainWindow):
         if event.text() == '/':
             self.setOperations('÷')
 
-
-
+        # RETURN JUST NUMBERS
         self.justNumbers(event.text())
-
-        print(event.text())
-        print(event.key())
 
     ## END -- APP EVENTS
     ############################################################################
@@ -808,5 +823,6 @@ class Ui(QtWidgets.QMainWindow):
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
+    QtGui.QFontDatabase.addApplicationFont('fonts/Roboto-Regular.ttf')
     ui = Ui()
     app.exec_()

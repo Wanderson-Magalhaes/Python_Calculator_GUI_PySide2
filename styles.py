@@ -8,6 +8,13 @@
 
 class style():
 
+    # MAIN WINDOW
+    mainWindow = ("""QToolTip {
+                   background: rgb(50, 50, 50);
+                   color: rgb(200, 200, 200);
+                   border: 1px solid rgb(40, 40, 40);
+                   }
+                   QLabel { color: rgb(200, 200, 200); }""")
     # BTS TITLE BAR
     ############################################################################
 
